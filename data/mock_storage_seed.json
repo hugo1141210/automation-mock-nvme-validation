@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "block_size_bytes": 512,
+  "data_representation": "ascii_pattern_zero_padded",
+  "blocks": {
+    "100": {
+      "pattern": "TEST_PATTERN_A"
+    },
+    "200": {
+      "pattern": "OLD_PATTERN"
+    },
+    "300": {
+      "pattern": "KNOWN_READ_DATA_300"
+    },
+    "400": {
+      "pattern": "OLD_PATTERN"
+    },
+    "500": {
+      "pattern": "TEST_PATTERN_A"
+    },
+    "1500": {
+      "pattern": "KNOWN_READ_DATA_1500"
+    },
+    "2000": {
+      "pattern": "OLD_PATTERN"
+    },
+    "2500": {
+      "pattern": "TEST_PATTERN_A"
+    }
+  }
+}
