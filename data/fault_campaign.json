@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "suite_id": "A02",
+  "name": "Automated Fault Injection Campaign",
+  "execution_order": [
+    "FP01",
+    "FP02",
+    "FP03",
+    "FP04"
+  ],
+  "cases": [
+    {
+      "case_id": "A02-FP01-C01",
+      "profile_id": "FP01",
+      "fault_profile": "timeout",
+      "operation": "READ",
+      "lba": 0,
+      "length": 1,
+      "setup": {
+        "type": "unwritten_lba"
+      },
+      "expected_detection": "TIMEOUT",
+      "recovery": "reset_retry_once",
+      "expected_result": {
+        "final_status": "SUCCESS",
+        "readback": "ZERO_BLOCK",
+        "storage_changed": false
+      }
+    },
+    {
+      "case_id": "A02-FP01-C02",
+      "profile_id": "FP01",
+      "fault_profile": "timeout",
+      "operation": "READ",
+      "lba": 100,
+      "length": 1,
+      "setup": {
+        "pattern": "TEST_PATTERN_A"
+      },
+      "expected_detection": "TIMEOUT",
+      "recovery": "reset_retry_once",
+      "expected_result": {
+        "final_status": "SUCCESS",
+        "readback": "TEST_PATTERN_A",
+        "storage_changed": false
+      }
+    },
+    {
+      "case_id": "A02-FP01-C03",
+      "profile_id": "FP01",
+      "fault_profile": "timeout",
+      "operation": "WRITE",
+      "lba": 200,
+      "length": 1,
+      "setup": {
+        "pattern": "OLD_PATTERN"
+      },
+      "write_pattern": "NEW_PATTERN",
+      "expected_detection": "TIMEOUT",
+      "recovery": "reset_retry_once_readback",
+      "expected_result": {
+        "after_fault": "OLD_PATTERN",
+        "after_recovery": "NEW_PATTERN"
+      }
+    },
+    {
+      "case_id": "A02-FP02-C01",
+      "profile_id": "FP02",
+      "fault_profile": "NAND_READ_FAIL",
+      "operation": "READ",
+      "lba": 300,
+      "length": 1,
+      "setup": {
+        "pattern": "KNOWN_READ_DATA_300"
+      },
+      "expected_detection": "FAILED_CQ_AND_LOG",
+      "recovery": "log_parse_correlation_no_retry",
+      "expected_result": {
+        "correlation": true,
+        "storage_changed": false
+      }
+    },
+    {
+      "case_id": "A02-FP02-C02",
+      "profile_id": "FP02",
+      "fault_profile": "NAND_READ_FAIL",
+      "operation": "READ",
+      "lba": 1500,
+      "length": 1,
+      "setup": {
+        "pattern": "KNOWN_READ_DATA_1500"
+      },
+      "expected_detection": "FAILED_CQ_AND_LOG",
+      "recovery": "log_parse_correlation_no_retry",
+      "expected_result": {
+        "correlation": true,
+        "storage_changed": false
+      }
+    },
+    {
+      "case_id": "A02-FP03-C01",
+      "profile_id": "FP03",
+      "fault_profile": "NAND_PROGRAM_FAIL",
+      "operation": "WRITE",
+      "lba": 400,
+      "length": 1,
+      "setup": {
+        "pattern": "OLD_PATTERN"
+      },
+      "write_pattern": "NEW_PATTERN",
+      "expected_detection": "FAILED_CQ_AND_LOG",
+      "recovery": "correlate_reset_retry_once_readback",
+      "expected_result": {
+        "after_fault": "OLD_PATTERN",
+        "after_recovery": "NEW_PATTERN"
+      }
+    },
+    {
+      "case_id": "A02-FP03-C02",
+      "profile_id": "FP03",
+      "fault_profile": "NAND_PROGRAM_FAIL",
+      "operation": "WRITE",
+      "lba": 2000,
+      "length": 1,
+      "setup": {
+        "pattern": "OLD_PATTERN"
+      },
+      "write_pattern": "NEW_PATTERN",
+      "expected_detection": "FAILED_CQ_AND_LOG",
+      "recovery": "correlate_reset_retry_once_readback",
+      "expected_result": {
+        "after_fault": "OLD_PATTERN",
+        "after_recovery": "NEW_PATTERN"
+      }
+    },
+    {
+      "case_id": "A02-FP04-C01",
+      "profile_id": "FP04",
+      "fault_profile": "miscompare",
+      "operation": "READ",
+      "lba": 500,
+      "length": 1,
+      "setup": {
+        "pattern": "TEST_PATTERN_A"
+      },
+      "expected_response_pattern": "TEST_PATTERN_B",
+      "expected_detection": "DATA_MISCOMPARE",
+      "recovery": "none",
+      "expected_result": {
+        "cq_status": "SUCCESS",
+        "storage_changed": false
+      }
+    },
+    {
+      "case_id": "A02-FP04-C02",
+      "profile_id": "FP04",
+      "fault_profile": "miscompare",
+      "operation": "READ",
+      "lba": 2500,
+      "length": 1,
+      "setup": {
+        "pattern": "TEST_PATTERN_A"
+      },
+      "expected_response_pattern": "TEST_PATTERN_B",
+      "expected_detection": "DATA_MISCOMPARE",
+      "recovery": "none",
+      "expected_result": {
+        "cq_status": "SUCCESS",
+        "storage_changed": false
+      }
+    }
+  ]
+}
