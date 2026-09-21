@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>700</height>
+   </size>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::FocusPolicy::NoFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Automation Mock NVMe Validation</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupValidation">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>581</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Validation Tests</string>
+    </property>
+    <widget class="QPushButton" name="btnT01">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>41</y>
+       <width>175</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>175</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+padding-left: 10px;</string>
+     </property>
+     <property name="text">
+      <string>T01 Device Baseline</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnT02">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>87</y>
+       <width>175</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>175</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+padding-left: 10px;</string>
+     </property>
+     <property name="text">
+      <string>T02 Write / Readback</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnT03">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>133</y>
+       <width>175</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>175</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+padding-left: 10px;</string>
+     </property>
+     <property name="text">
+      <string>T03 Invalid Range</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnT04">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>41</y>
+       <width>175</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>175</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+padding-left: 10px;</string>
+     </property>
+     <property name="text">
+      <string>T04 Unsupported Cmd</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnT05">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>87</y>
+       <width>175</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>175</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+padding-left: 10px;</string>
+     </property>
+     <property name="text">
+      <string>T05 Timeout / Recovery</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnT06">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>133</y>
+       <width>175</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>175</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+padding-left: 10px;</string>
+     </property>
+     <property name="text">
+      <string>T06 Data Integrity</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnT07">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>41</y>
+       <width>175</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>175</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+padding-left: 10px;</string>
+     </property>
+     <property name="text">
+      <string>T07 Log Parsing</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnT08">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>87</y>
+       <width>175</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>175</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+padding-left: 10px;</string>
+     </property>
+     <property name="text">
+      <string>T08 Read FW Error</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnT09">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>133</y>
+       <width>175</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>175</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+padding-left: 10px;</string>
+     </property>
+     <property name="text">
+      <string>T09 Write Failure</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnA01">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>180</y>
+       <width>200</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>A01 Full Validation</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnA02">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>180</y>
+       <width>200</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>A02 Fault Campaign</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupControl">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>10</y>
+      <width>191</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Control</string>
+    </property>
+    <widget class="QPushButton" name="btnTestStop">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>151</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Test Stop</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnReadCurrentData">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>151</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Read Current Data</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnResetData">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>151</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Reset Data</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnOpenLastReport">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>190</y>
+       <width>151</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Open Last Report</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupConsole">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>781</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Console / Log Viewer</string>
+    </property>
+    <widget class="QPlainTextEdit" name="txtConsole">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>761</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="lineWrapMode">
+      <enum>QPlainTextEdit::LineWrapMode::WidgetWidth</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnClearConsole">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>410</y>
+       <width>51</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
