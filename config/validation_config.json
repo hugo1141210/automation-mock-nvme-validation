@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+
+  "project": {
+    "name": "automation-mock-nvme-validation",
+    "mode": "interview_demo"
+  },
+
+  "device": {
+    "definition_file": "data/mock_device.json"
+  },
+
+  "queue": {
+    "sq_depth": 4,
+    "cq_depth": 4,
+    "queue_full_testing_enabled": false
+  },
+
+  "cid": {
+    "start": 1,
+    "increment": 1,
+    "reset_on_new_test": true,
+    "reset_on_new_campaign_case": true,
+    "preserve_on_controller_reset": true
+  },
+
+  "timeout": {
+    "command_timeout_sec": 2.0,
+    "clock": "monotonic"
+  },
+
+  "recovery": {
+    "max_retry": 1,
+
+    "controller_reset": {
+      "clear_outstanding_commands": true,
+      "reinitialize_sq": true,
+      "reinitialize_cq": true,
+      "restore_ready_state": true,
+      "preserve_storage": true,
+      "preserve_cid_progression": true
+    }
+  },
+
+  "expected_device": {
+    "model": "MockNVMe-01",
+    "firmware_revision": "1.0.3",
+    "nsid": 1,
+    "capacity_blocks": 4096,
+    "logical_block_size_bytes": 512
+  },
+
+  "health_thresholds": {
+    "max_temperature_c": 70,
+    "expected_critical_warning": 0,
+    "expected_media_errors": 0
+  },
+
+  "storage": {
+    "runtime_file": "data/mock_storage.json",
+    "seed_file": "data/mock_storage_seed.json",
+    "data_representation": "ascii_pattern_zero_padded",
+    "unwritten_lba_fill": "0x00",
+    "validate_via_readback": true
+  },
+
+  "completion_status": {
+    "success": "SUCCESS",
+    "invalid_range": "INVALID_RANGE",
+    "unsupported_command": "UNSUPPORTED_COMMAND",
+    "failed": "FAILED",
+    "timeout": "TIMEOUT",
+    "data_miscompare": "DATA_MISCOMPARE"
+  },
+
+  "fault_injection": {
+    "deterministic_only": true,
+    "allow_random_faults": false,
+
+    "supported_faults": [
+      "timeout",
+      "miscompare",
+      "NAND_READ_FAIL",
+      "NAND_PROGRAM_FAIL"
+    ]
+  },
+
+  "automation": {
+    "continue_on_case_failure": true,
+
+    "a01": {
+      "suite_id": "A01",
+      "name": "Automated Full Validation Suite",
+      "execution_order": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ]
+    },
+
+    "a02": {
+      "suite_id": "A02",
+      "name": "Automated Fault Injection Campaign",
+      "campaign_file": "data/fault_campaign.json",
+      "profile_order": [
+        "FP01",
+        "FP02",
+        "FP03",
+        "FP04"
+      ],
+      "reset_storage_after_campaign": false
+    }
+  },
+
+  "report": {
+    "format": "pdf",
+    "library": "reportlab",
+    "auto_open": true,
+
+    "output_root": "reports",
+
+    "suite_directories": {
+      "A01": "reports/A01",
+      "A02": "reports/A02"
+    },
+
+    "filename_pattern": "{suite_id}_{YYYYMMDD}_{HHMMSS}.pdf",
+    "overwrite_existing": false
+  },
+
+  "logging": {
+    "firmware_log_required_fields": [
+      "Timestamp",
+      "CID",
+      "Opcode",
+      "LBA",
+      "Status",
+      "Error"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "model": "MockNVMe-01",
+  "firmware_revision": "1.0.3",
+  "namespace": {
+    "nsid": 1,
+    "capacity_blocks": 4096,
+    "logical_block_size_bytes": 512,
+    "valid_lba_start": 0,
+    "valid_lba_end": 4095
+  },
+  "health": {
+    "temperature_c": 35,
+    "critical_warning": 0,
+    "media_errors": 0,
+    "percentage_used": 5
+  }
+}
